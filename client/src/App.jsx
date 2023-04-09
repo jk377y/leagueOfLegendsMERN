@@ -1,5 +1,5 @@
 import './App.css';
-import ChampionGallery from './components/Champions';
+import Homepage from './components/Homepage';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        <ChampionGallery /> 
+        <Homepage /> 
       </ApolloProvider>
     </>
   );

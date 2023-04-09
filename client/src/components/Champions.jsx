@@ -40,55 +40,59 @@ const ChampionGallery = () => {
 	if (error) return <p>Error loading champions!</p>;
 
 	return (
-		<div className="gallery">
-			{data.champions.map((champion) => (
-				<div key={champion.id}>
-					<img
-						src={champion.mainPic}
-						className="thumbnail"
-						alt={`${champion.name} - ${champion.title}`}
-						onClick={() => handleChampionClick(champion)}
-						title={champion.name}
-					/>
-				</div>
-			))}
-			{selectedChampion && (
-				<div className="champion-modal">
-					<div className="champion-modal-content">
-						<button onClick={handleCloseModal}>Close</button>
-						<img
-							src={selectedChampion.mainPic}
-							alt={`${selectedChampion.name} - ${selectedChampion.title}`}
-						/>
-						<h2>{selectedChampion.name}</h2>
-						<h3>{selectedChampion.title}</h3>
-						<p>{selectedChampion.lore}</p>
-						<ul>
-							{selectedChampion.roles.map((role) => (
-								<li key={role}>{role}</li>
-							))}
-						</ul>
-						<h4>{selectedChampion.passiveName}</h4>
-						<img
-							src={selectedChampion.passiveImage}
-							alt={selectedChampion.passiveName}
-						/>
-						<p>{selectedChampion.passiveDescription}</p>
-						<h4>Spells</h4>
-						{selectedChampion.spells.map((spell) => (
-							<div key={spell.spellId}>
-								<h5>{spell.spellName}</h5>
-								<img
-									src={spell.spellImage}
-									alt={`${spell.spellName} - ${selectedChampion.name}`}
-								/>
-								<p>{spell.spellDescription}</p>
-							</div>
-						))}
-					</div>
-				</div>
-			)}
-		</div>
+        <div className="galleryContainer">
+            <h1 className="galleryTitle">Your Champion Awaits</h1>
+            <div className="gallery">
+                {data.champions.map((champion) => (
+                    <div key={champion.id}>
+                        <img
+                            id={champion.id}
+                            src={champion.mainPic}
+                            className="thumbnail"
+                            alt={`${champion.name} - ${champion.title}`}
+                            onClick={() => handleChampionClick(champion)}
+                            title={champion.name}
+                        />
+                    </div>
+                ))}
+                {selectedChampion && (
+                    <div className="champion-modal">
+                        <div className="champion-modal-content">
+                            <button onClick={handleCloseModal}>Close</button>
+                            <img
+                                src={selectedChampion.mainPic}
+                                alt={`${selectedChampion.name} - ${selectedChampion.title}`}
+                            />
+                            <h2>{selectedChampion.name}</h2>
+                            <h3>{selectedChampion.title}</h3>
+                            <p>{selectedChampion.lore}</p>
+                            <ul>
+                                {selectedChampion.roles.map((role) => (
+                                    <li key={role}>{role}</li>
+                                ))}
+                            </ul>
+                            <h4>{selectedChampion.passiveName}</h4>
+                            <img
+                                src={selectedChampion.passiveImage}
+                                alt={selectedChampion.passiveName}
+                            />
+                            <p>{selectedChampion.passiveDescription}</p>
+                            <h4>Spells</h4>
+                            {selectedChampion.spells.map((spell) => (
+                                <div key={spell.spellId}>
+                                    <h5>{spell.spellName}</h5>
+                                    <img
+                                        src={spell.spellImage}
+                                        alt={`${spell.spellName} - ${selectedChampion.name}`}
+                                    />
+                                    <p>{spell.spellDescription}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>    
 	);
 };
 
