@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Champions from "./Champions";
 import LeagueLogo from "../images/lolLogo.jpg";
 
+
+// currently switching components with useState, but will reconfigure for router later
 const Homepage = () => {
   const [displayComponent, setDisplayComponent] = useState("home");
 
